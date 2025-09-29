@@ -1,0 +1,32 @@
+name: Sync Google Drive to GitHub
+
+on:
+  schedule:
+    - cron: "0 20 * * *" # 15h Québec = 20h UTC
+  workflow_dispatch: # permet de lancer manuellement
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+          mkdir -p ~/.config/rclone
+          echo "${{ secrets.RCLONE_CONF }}" > ~/.config/rclone/rclone.conf
+
+      - name: Sync from Google Drive
+        run: |
+          rclone copy "gdrive:econodeal-data" ./data --progress
+          ls -lh ./data
+
+      - name: Commit & Push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update from Google Drive" || echo "No changes"
+          git push
