@@ -1,15 +1,50 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EconoDeal – Liquidations multi‑magasins</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EconoDeal – Liquidations multi-magasins</title>
+<style>
+:root{--bg:#0b1020;--card:#121933;--muted:#1a2240;--text:#e9ecff;--accent:#7aa2ff}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#090e1d,#0d142b);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+header{position:sticky;top:0;background:#0c1227cc;backdrop-filter:blur(6px);border-bottom:1px solid #1d2546}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+h1{margin:0;font-size:clamp(18px,3vw,24px)}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.pill{background:var(--muted);border:1px solid #2a3566;border-radius:999px;padding:8px 10px;display:flex;gap:8px;align-items:center}
+.pill input[type="search"], .pill input[type="number"], .pill select{background:transparent;border:none;color:var(--text);outline:none}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;padding:16px}
+.card{background:var(--card);border:1px solid #1f2953;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;min-height:290px}
+ .thumb{aspect-ratio:16/10;background:#0e1430 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='180'%3E%3Crect width='100%25' height='100%25' fill='%23101439'/%3E%3Ctext x='50%25' y='52%25' fill='%234f5b99' font-family='sans-serif' font-size='18' text-anchor='middle'%3C%2Ftext%3E%3C/svg%3E") center/cover}
+ .body{padding:12px 14px;display:flex;flex-direction:column;gap:8px}
+ .title{font-weight:600;line-height:1.2}
+ .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12px;color:#b8c0ff}
+ .tag{background:#0f1733;border:1px solid #2b3a88;border-radius:999px;padding:2px 8px}
+ .price{display:flex;align-items:baseline;gap:8px}
+ .old{opacity:.6;text-decoration:line-through}
+ .btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(180deg,#2a49ff,#2038d9);border:1px solid #6278ff;color:white;padding:8px 10px;border-radius:10px;text-decoration:none;font-weight:600}
+ .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+ .grp{display:flex;gap:6px;align-items:center}
+ .switch{display:inline-grid;grid-auto-flow:column;gap:6px;background:var(--muted);border:1px solid #2a3566;border-radius:999px;padding:4px}
+ .switch button{background:transparent;border:none;color:#a8b3ff;padding:6px 10px;border-radius:999px;cursor:pointer}
+ .switch button.active{background:#233066;color:#fff}
+ footer{color:#97a0da70;border-top:1px solid #1d2546}
+ .empty{opacity:.7;padding:32px;text-align:center}
+ </style>
 </head>
 <body>
-  <h1>🚀 Bienvenue sur EconoDeal</h1>
-  <p>Ce site charge les liquidations multi‑magasins (Walmart, Home Depot, Canadian Tire, Rona, Patrick Morin).</p>
-  <p>Filtres : magasins, villes (Laval, Montréal, Saint‑Jérôme), % rabais, tri.</p>
-  <p>Bilingue FR/EN.</p>
-  <p>Les données sont mises à jour chaque jour à 15h (Québec) depuis Google Drive.</p>
-</body>
-</html>
+ <header>
+ <div class="container">
+ <div class="row">
+ <h1>🛒 <span data-i18n="title">Liquidations multi‑magasins</span></h1>
+ <div class="toolbar">
+ <label class="pill">
+ <span>🔎</span>
+ <input id="q" type="search" placeholder="Rechercher…" aria-label="Search" />
+ </label>
+ <label class="pill">
+ <span data-i18n="store">Magasin</span>
+ <select id="store" multiple size="1" aria-label="Store" style="min-width:160px">
+ <option value="walmart">Walmart</option>
+ <option value="home_depot">Home Depot</option>
