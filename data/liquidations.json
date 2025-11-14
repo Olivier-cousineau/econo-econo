@@ -1,0 +1,47 @@
+{
+  "generated_at": "2025-11-14T19:39:21.792281+00:00",
+  "source": "demo",
+  "query": "clearance",
+  "stores": [
+    {
+      "slug": "walmart-st-jerome",
+      "name": "Walmart Saint-Jérôme Supercentre",
+      "city": "Saint-Jérôme",
+      "postal_code": "J7Y5K2",
+      "store_id": "3126"
+    },
+    {
+      "slug": "walmart-blainville",
+      "name": "Walmart Blainville Supercentre",
+      "city": "Blainville",
+      "postal_code": "J7C0M8",
+      "store_id": "3125"
+    }
+  ],
+  "items": [
+    {
+      "sku": "6000191234567",
+      "title": "Téléviseur TCL 55'' 4K",
+      "store": "Walmart Saint-Jérôme Supercentre",
+      "city": "Saint-Jérôme",
+      "price": 398.0,
+      "was": 598.0,
+      "pct": 33,
+      "url": "https://www.walmart.ca/ip/6000191234567",
+      "image": "https://i5.walmartimages.ca/images/Enlarge/123/456/6000191234567.jpg",
+      "availability": "IN_STOCK"
+    },
+    {
+      "sku": "6000209876543",
+      "title": "Compresseur Mastercraft 20V",
+      "store": "Walmart Blainville Supercentre",
+      "city": "Blainville",
+      "price": 89.0,
+      "was": 149.0,
+      "pct": 40,
+      "url": "https://www.walmart.ca/ip/6000209876543",
+      "image": "https://i5.walmartimages.ca/images/Enlarge/987/654/6000209876543.jpg",
+      "availability": "LOW_STOCK"
+    }
+  ]
+}
